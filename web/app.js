@@ -275,8 +275,6 @@ function main() {
       }
     }, 0);
   });
-
-  form.dispatchEvent(new Event("submit"));
 }
 
 document.addEventListener("DOMContentLoaded", main);
