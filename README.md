@@ -24,7 +24,7 @@ uv run src/best_session.py
 
 Or pass arguments directly:
 ```bash
-uv run src/best_session.py 1000 --court-weight 1 --partner-weight 2 --serve-weight 1
+uv run src/best_session.py 1000 --rounds 6 --court-weight 1 --partner-weight 2 --serve-weight 1
 ```
 
 ## Building a standalone executable
