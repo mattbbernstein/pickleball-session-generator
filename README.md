@@ -38,9 +38,27 @@ The executable is written to `dist/pickleball-session-generator`
 cross-compile — build on macOS for a macOS binary, on Windows for a
 Windows `.exe`.
 
+## Web app
+
+A static, dependency-free JS port of the same logic lives in `web/` and is
+deployed to GitHub Pages on every push to `main` that touches that
+directory (see `.github/workflows/pages.yml`).
+
+To enable Pages for this repo (one-time): Settings → Pages → Source →
+"GitHub Actions".
+
+To run it locally:
+
+```bash
+cd web && python3 -m http.server 8000
+```
+
+then open <http://localhost:8000>.
+
 ## Files
 
 - `src/pickleball_round.py` — `PickleballRound`: one round's court/team/serve assignment
 - `src/pickleball_session.py` — `PickleballSession`: N rounds plus the variety heuristic score
 - `src/best_session.py` — CLI/interactive entry point: generates N sessions, prints the best
 - `build.py` — cross-platform PyInstaller build script (stays in project root)
+- `web/` — static HTML/JS port of the generator, deployed to GitHub Pages

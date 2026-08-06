@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pickleball Session Generator</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+    h1 {
+      font-size: 1.4rem;
+    }
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: end;
+      margin-bottom: 1.5rem;
+    }
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    label {
+      font-size: 0.85rem;
+    }
+    input {
+      width: 6rem;
+      padding: 0.3rem;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+    pre {
+      font-family: "SF Mono", Menlo, Consolas, monospace;
+      overflow-x: auto;
+      padding: 1rem;
+      border: 1px solid #8884;
+      border-radius: 6px;
+    }
+    #score {
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pickleball Session Generator</h1>
+  <p>Generates randomized doubles pickleball session schedules (8 players, 2 courts) and picks the one that best rotates courts, partners, and serving turns.</p>
+
+  <form id="options-form">
+    <div class="field">
+      <label for="num-sessions">Sessions to try</label>
+      <input id="num-sessions" type="number" min="1" value="1000" required />
+    </div>
+    <div class="field">
+      <label for="num-rounds">Rounds</label>
+      <input id="num-rounds" type="number" min="1" max="35" value="6" required />
+    </div>
+    <div class="field">
+      <label for="court-weight">Court weight</label>
+      <input id="court-weight" type="number" min="1" max="3" value="1" required />
+    </div>
+    <div class="field">
+      <label for="partner-weight">Partner weight</label>
+      <input id="partner-weight" type="number" min="1" max="3" value="2" required />
+    </div>
+    <div class="field">
+      <label for="serve-weight">Serve weight</label>
+      <input id="serve-weight" type="number" min="1" max="3" value="1" required />
+    </div>
+    <button type="submit">Generate</button>
+  </form>
+
+  <pre id="output"></pre>
+  <div id="score"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
